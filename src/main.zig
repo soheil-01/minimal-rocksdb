@@ -76,6 +76,10 @@ const RocksDB = struct {
             return .{ .err = std.mem.span(errStr) };
         }
 
+        if (valueLength == 0) {
+            return .{ .val = "" };
+        }
+
         return .{ .val = v[0..valueLength] };
     }
 
